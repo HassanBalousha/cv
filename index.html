@@ -141,31 +141,27 @@
             gap: 1.5rem;
         }
 
-        /* Skills Layout */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+        /* Optimized Skills Layout */
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
         }
 
-        .skill-group {
-            border: 1px solid var(--border-color);
-            background-color: var(--light-bg);
-            padding: 1rem;
-            border-radius: 4px;
+        .skill-item {
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        .skill-group ul {
-            columns: 2;
-            column-gap: 1.5rem;
-            padding-left: 1rem;
-            margin-bottom: 0;
+        .skill-item strong {
+            color: var(--text-main);
+            font-weight: 700;
+            display: inline-block;
+            min-width: 220px;
         }
 
-        .skill-group li {
-            font-size: 0.85rem;
-            margin-bottom: 0.3rem;
-            break-inside: avoid;
+        .skill-item span {
+            color: var(--text-muted);
         }
 
         /* Target Roles Tags */
@@ -213,14 +209,16 @@
             body { padding: 0; font-size: 12pt; }
             a { color: #000; text-decoration: none; }
             section { page-break-inside: avoid; }
-            .skill-group { background-color: transparent; }
             .target-roles li { border-color: #000; }
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 650px) {
             .grid { grid-template-columns: 1fr; }
-            .skill-group ul { columns: 1; }
             .job-row { flex-direction: column; }
+            .skill-item strong {
+                display: block;
+                margin-bottom: 0.1rem;
+            }
         }
     </style>
 </head>
@@ -258,61 +256,29 @@
         </ul>
     </section>
 
-    <!-- Core Technical Skills -->
+    <!-- Core Technical Skills (Updated to be Clean & Simple) -->
     <section>
         <h2>Core Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-group">
-                <h3>Mobile Engineering</h3>
-                <ul>
-                    <li>Flutter & Dart</li>
-                    <li>Android & iOS</li>
-                    <li>BLoC & Cubit</li>
-                    <li>Clean Architecture</li>
-                    <li>Modular Architecture</li>
-                    <li>Performance Optimization</li>
-                    <li>Push Notifications</li>
-                    <li>REST APIs & Firebase</li>
-                </ul>
+        <div class="skills-list">
+            <div class="skill-item">
+                <strong>Mobile Engineering:</strong> 
+                <span>Flutter, Dart, BLoC, Cubit, State Management, Clean Architecture, Modular Architecture, Mobile Architecture, Performance Optimization, Push Notifications, REST APIs, Firebase Messaging, Android, iOS</span>
             </div>
-            <div class="skill-group">
-                <h3>AI Automation</h3>
-                <ul>
-                    <li>AI Automation & Agents</li>
-                    <li>Agentic Workflows</li>
-                    <li>MCP & MCP Servers</li>
-                    <li>n8n & Make</li>
-                    <li>CopilotKit & Agno</li>
-                    <li>AI-assisted Dev</li>
-                    <li>Vibe Coding</li>
-                    <li>Reusable AI Workflows</li>
-                </ul>
+            <div class="skill-item">
+                <strong>AI Automation:</strong> 
+                <span>AI Automation, AI Agents, Agentic Workflows, MCP, MCP Servers, n8n, Make, CopilotKit, Agno, AI-assisted Development, Vibe Coding, Reusable AI Workflows</span>
             </div>
-            <div class="skill-group">
-                <h3>Release & Quality</h3>
-                <ul>
-                    <li>Release Governance</li>
-                    <li>Staged Rollouts</li>
-                    <li>App Stores Connect</li>
-                    <li>Firebase Crashlytics</li>
-                    <li>Production Monitoring</li>
-                    <li>Bug Triage & Hotfixes</li>
-                    <li>CI/CD & Fastlane</li>
-                    <li>GitHub Actions</li>
-                </ul>
+            <div class="skill-item">
+                <strong>Release & Quality:</strong> 
+                <span>Release Governance, Staged Rollouts, App Store Connect, Google Play Console, Firebase Crashlytics, Production Monitoring, Bug Triage, Hotfixes, Release Checklists, Feature Quality, CI/CD, GitHub Actions, Fastlane</span>
             </div>
-            <div class="skill-group">
-                <h3>Analytics & Leadership</h3>
-                <ul>
-                    <li>Firebase, PostHog</li>
-                    <li>MoEngage, WebEngage</li>
-                    <li>A/B Testing & Attribution</li>
-                    <li>Technical Leadership</li>
-                    <li>Engineering Mentoring</li>
-                    <li>PR & Code Reviews</li>
-                    <li>Architecture Decisions</li>
-                    <li>Agile & Scrum</li>
-                </ul>
+            <div class="skill-item">
+                <strong>Analytics & Growth:</strong> 
+                <span>Firebase Analytics, PostHog, MoEngage, WebEngage, Adjust, Event Tracking, Event Taxonomy, A/B Testing, Attribution, Lifecycle Events, Growth KPIs, Campaign Attribution</span>
+            </div>
+            <div class="skill-item">
+                <strong>Leadership & Agile:</strong> 
+                <span>Technical Leadership, Team Leadership, Engineering Mentoring, PR Reviews, Code Review, Architecture Decisions, Cross-functional Collaboration, Agile, Scrum</span>
             </div>
         </div>
     </section>
