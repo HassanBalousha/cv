@@ -3,419 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlHassan Balousha | Senior Lead Mobile Engineer</title>
+    <title>AlHassan Balousha | AI Automation Engineer | Senior Flutter Engineer | Lead Mobile Engineer</title>
+    <meta name="description" content="ATS-friendly resume for AlHassan Balousha, targeting AI Automation Engineer, Senior Flutter Engineer, and Lead Mobile Engineer roles.">
+    <meta name="keywords" content="AI Automation Engineer, Senior Flutter Engineer, Lead Mobile Engineer, Flutter Architect, Mobile Architect, Flutter, Dart, Android, iOS, BLoC, Cubit, Clean Architecture, Modular Architecture, Firebase, Crashlytics, Firebase Analytics, PostHog, MoEngage, WebEngage, Adjust, A/B Testing, AI Agents, MCP, MCP Servers, n8n, Make, CopilotKit, Agno, Technical Leadership, Release Governance, Staged Rollouts, Production Monitoring, CI/CD, GitHub Actions, Fastlane">
+    <meta name="author" content="AlHassan Balousha">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-main: #111827;
-            --text-muted: #4b5563;
-            --accent-link: #1d4ed8;
-            --border-color: #9ca3af;
-            --light-bg: #f9fafb;
+            --text: #111827;
+            --muted: #4b5563;
+            --border: #d1d5db;
+            --light: #f9fafb;
+            --link: #1d4ed8;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.5;
-            padding: 2.5rem 1.5rem;
+            margin: 0;
+            padding: 32px 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: #ffffff;
+            line-height: 1.45;
         }
-
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
+        main { max-width: 880px; margin: 0 auto; }
+        header { text-align: center; border-bottom: 2px solid var(--text); padding-bottom: 18px; margin-bottom: 22px; }
+        h1 { margin: 0 0 4px; font-size: 34px; letter-spacing: -0.5px; text-transform: uppercase; }
+        .headline { font-size: 17px; font-weight: 700; color: var(--muted); margin-bottom: 10px; }
+        .contact { font-size: 14px; font-weight: 500; }
+        a { color: var(--link); text-decoration: none; }
+        section { margin: 0 0 22px; }
+        h2 { font-size: 18px; text-transform: uppercase; border-bottom: 1px solid var(--text); padding-bottom: 4px; margin: 0 0 10px; letter-spacing: 0.5px; }
+        h3 { font-size: 15px; margin: 0 0 4px; }
+        p { margin: 0 0 8px; }
+        ul { margin: 0 0 10px 20px; padding: 0; }
+        li { margin-bottom: 5px; }
+        .job-row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-weight: 700; }
+        .company { color: var(--muted); margin: 3px 0 8px; }
+        .links { margin: 4px 0 8px; font-size: 14px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .skill-group { border: 1px solid var(--border); background: var(--light); padding: 10px 12px; margin-bottom: 10px; }
+        .skill-group ul { columns: 2; column-gap: 22px; }
+        .keyword-list { font-size: 13px; color: var(--muted); }
+        footer { border-top: 1px solid var(--border); padding-top: 10px; margin-top: 28px; text-align: center; font-size: 12px; color: var(--muted); }
+        @media print {
+            body { padding: 16mm; }
+            a { color: #000000; }
+            section { page-break-inside: avoid; }
         }
-
-        /* Header Style */
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid var(--text-main);
-            padding-bottom: 1.5rem;
-        }
-
-        header h1 {
-            font-size: 2.4rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.25rem;
-        }
-
-        header .subtitle {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .contact-info {
-            font-size: 0.95rem;
-            color: var(--text-main);
-            font-weight: 500;
-        }
-
-        .contact-info a {
-            color: var(--accent-link);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Section Layout */
-        section {
-            margin-bottom: 2rem;
-        }
-
-        section h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-bottom: 1px solid var(--text-main);
-            padding-bottom: 0.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .summary-text {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            text-align: justify;
-        }
-
-        /* Metrics Grid */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .metric-card {
-            border: 1px solid #e5e7eb;
-            background-color: var(--light-bg);
-            padding: 0.75rem;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .metric-card .number {
-            font-size: 1.35rem;
-            font-weight: 700;
-        }
-
-        .metric-card .label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        /* Experience & Lists */
-        .job-title-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .company-meta {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin: 0.5rem 0;
-            font-size: 0.9rem;
-        }
-
-        .project-links a {
-            color: var(--accent-link);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .project-links a:hover {
-            text-decoration: underline;
-        }
-
-        ul {
-            padding-left: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        li {
-            margin-bottom: 0.4rem;
-            text-align: justify;
-            font-size: 0.95rem;
-        }
-
-        ul.nested-list {
-            list-style-type: circle;
-            padding-left: 1.5rem;
-            margin-top: 0.25rem;
-            margin-bottom: 0.25rem;
-        }
-
-        /* Technical Strengths Grid */
-        .strengths-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1rem;
-        }
-
-        .strength-category h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-            text-transform: cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Skills Tags */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .skill-tag {
-            font-size: 0.85rem;
-            padding: 0.2rem 0.5rem;
-            border: 1px solid #d1d5db;
-            background-color: var(--light-bg);
-            border-radius: 3px;
-            font-weight: 500;
-        }
-
-        /* Grid for Footer Metadata */
-        .meta-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 3rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            border-top: 1px solid #e5e7eb;
-            padding-top: 1rem;
-        }
-
-        @media (max-width: 600px) {
-            .job-title-row {
-                flex-direction: column;
-            }
-            .meta-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
+        @media (max-width: 700px) {
+            .grid { grid-template-columns: 1fr; }
+            .skill-group ul { columns: 1; }
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <!-- Header Section -->
-        <header>
-            <h1>AlHassan Balousha</h1>
-            <div class="subtitle">Senior / Lead Mobile Engineer - Flutter, iOS & Android - AI Automation</div>
-            <div class="contact-info">
-                <span>[Your Phone Number]</span> | 
-                <a href="mailto:hassanbalousha75@gmail.com">hassanbalousha75@gmail.com</a> | 
-                <a href="https://www.linkedin.com/in/alhassan-balousha-9b7bb8114/" target="_blank">LinkedIn</a> | 
-                <a href="https://github.com/HassanBalousha" target="_blank">GitHub</a> | 
-                <span>Palestine / Remote</span>
-            </div>
-        </header>
-
-        <!-- Professional Summary -->
-        <section>
-            <h2>Professional Summary</h2>
-            <p class="summary-text">Senior / Lead Mobile Engineer with 9+ years shipping production iOS and Android apps to 5M+ users using Flutter, Dart, BLoC / Cubit, and Clean Architecture.</p>
-            <p class="summary-text">Lead a 4-engineer squad at iStoria, an EdTech English language learning app, owning architecture, release governance, and delivery for a 50+ module codebase.</p>
-            <p class="summary-text">Shipped 300+ production releases, reviewed 600+ PRs, sustained a 99.9% crash-free rate, and reduced the release cycle from 4 weeks to 1 week.</p>
-        </section>
-
-        <!-- Key Metrics -->
-        <section>
-            <h2>Key Metrics</h2>
-            <div class="metrics-grid">
-                <div class="metric-card"><div class="number">9+ Years</div><div class="label">Production Mobile Exp.</div></div>
-                <div class="metric-card"><div class="number">5M+</div><div class="label">Users Reached</div></div>
-                <div class="metric-card"><div class="number">4</div><div class="label">Engineers Led</div></div>
-                <div class="metric-card"><div class="number">50+</div><div class="label">Modules Owned</div></div>
-                <div class="metric-card"><div class="number">300+</div><div class="label">Production Releases</div></div>
-                <div class="metric-card"><div class="number">600+</div><div class="label">Pull Requests Reviewed</div></div>
-                <div class="metric-card"><div class="number">99.9%</div><div class="label">Crash-free Stability</div></div>
-                <div class="metric-card"><div class="number">4w → 1w</div><div class="label">Release Cycle Improved</div></div>
-            </div>
-        </section>
-
-        <!-- Experience -->
-        <section>
-            <h2>Experience</h2>
-            <div class="experience-item">
-                <div class="job-title-row">
-                    <div>Senior / Lead Mobile Engineer</div>
-                    <div class="exp-time">March 2020 – Present | Remote</div>
-                </div>
-                <div class="company-meta">iStoria - EdTech / English Language Learning</div>
-                
-                <!-- Links moved exactly into the iStoria Experience block as requested -->
-                <div class="project-links">
-                    <a href="https://istoria.app/" target="_blank">🔗 Website</a>
-                    <a href="https://apps.apple.com/us/app/learn-english-easily-istoria/id1527544903" target="_blank">🍏 App Store</a>
-                    <a href="https://play.google.com/store/apps/details?id=sa.app.iStoria" target="_blank">🤖 Google Play</a>
-                </div>
-
-                <ul>
-                    <li>Led mobile architecture and delivery for a scalable Flutter codebase serving 5M+ users across Android and iOS.</li>
-                    <li>Owned release governance, staged rollout decisions, post-release monitoring, and production quality.</li>
-                    <li>Led a 4-engineer squad, reviewed code, guided implementation decisions, and improved engineering standards.</li>
-                    <li>Delivered 300+ production releases while maintaining 99.9% crash-free stability using Firebase Crashlytics.</li>
-                    <li>Reviewed 600+ pull requests across a 50+ module codebase.</li>
-                    <li>Reduced release cycle from 4 weeks to 1 week by improving release workflows and quality checks.</li>
-                    <li>Integrated analytics, attribution, and marketing automation tools:
-                        <ul class="nested-list">
-                            <li>MoEngage</li>
-                            <li>WebEngage</li>
-                            <li>PostHog</li>
-                            <li>Adjust</li>
-                            <li>Firebase</li>
-                        </ul>
-                    </li>
-                    <li>Implemented event tracking, A/B testing support, attribution flows, and lifecycle events to support growth KPIs.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Core Skills -->
-        <section>
-            <h2>Core Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Flutter</span><span class="skill-tag">Dart</span><span class="skill-tag">Android</span><span class="skill-tag">iOS</span><span class="skill-tag">BLoC</span><span class="skill-tag">Cubit</span><span class="skill-tag">Clean Architecture</span><span class="skill-tag">Modular Architecture</span><span class="skill-tag">Release Governance</span><span class="skill-tag">Staged Rollouts</span><span class="skill-tag">Firebase Crashlytics</span><span class="skill-tag">Firebase Analytics</span><span class="skill-tag">Production Monitoring</span><span class="skill-tag">A/B Testing</span><span class="skill-tag">Feature Quality</span><span class="skill-tag">PR Reviews</span><span class="skill-tag">MoEngage</span><span class="skill-tag">WebEngage</span><span class="skill-tag">PostHog</span><span class="skill-tag">Adjust</span><span class="skill-tag">Event Tracking</span><span class="skill-tag">Attribution</span><span class="skill-tag">Growth KPIs</span><span class="skill-tag">Lifecycle Marketing</span>
-            </div>
-        </section>
-
-        <!-- AI, Automation & Developer Productivity -->
-        <section>
-            <h2>AI, Automation & Developer Productivity</h2>
-            <ul>
-                <li>Created custom AI agents and project-specific workflows using: <strong>Agno, CopilotKit, and Agentic development patterns</strong>.</li>
-                <li>Built automation workflows using: <strong>n8n and Make</strong>.</li>
-                <li>Created project architecture assets: <strong>Plans, Hooks, Skills, Instructions, and Reusable AI workflows</strong>.</li>
-                <li>Created and connected MCP tools/servers to integrate AI with external systems.</li>
-                <li>Used AI-assisted development and vibe coding to build, improve, and contribute to open-source tools faster.</li>
-            </ul>
-        </section>
-
-        <!-- Selected Technical Strengths -->
-        <section>
-            <h2>Selected Technical Strengths</h2>
-            <div class="strengths-grid">
-                <div class="strength-category">
-                    <h3>Mobile Engineering</h3>
-                    <ul>
-                        <li>Production Flutter apps</li>
-                        <li>Scalable mobile architecture</li>
-                        <li>Android/iOS delivery</li>
-                        <li>App performance</li>
-                        <li>Modular codebase ownership</li>
-                        <li>Clean code practices</li>
-                    </ul>
-                </div>
-                <div class="strength-category">
-                    <h3>Release & Quality</h3>
-                    <ul>
-                        <li>Release planning / Staged rollout</li>
-                        <li>Production monitoring</li>
-                        <li>Crash-free tracking & Bug triage</li>
-                        <li>Hotfixes & Release checklists</li>
-                        <li>Feature quality control</li>
-                    </ul>
-                </div>
-                <div class="strength-category">
-                    <h3>Analytics & Growth</h3>
-                    <ul>
-                        <li>Event taxonomy & Tracking</li>
-                        <li>Campaign attribution</li>
-                        <li>User behavior analysis</li>
-                        <li>A/B testing support</li>
-                        <li>Lifecycle events & KPI protection</li>
-                    </ul>
-                </div>
-                <div class="strength-category">
-                    <h3>Team Leadership</h3>
-                    <ul>
-                        <li>Squad leadership & Mentoring</li>
-                        <li>PR reviews & Tech decisions</li>
-                        <li>Cross-functional work with product, growth, and marketing teams</li>
-                    </ul>
-                </div>
-                <div class="strength-category">
-                    <h3>AI Systems</h3>
-                    <ul>
-                        <li>Custom AI agents & Agent workflows</li>
-                        <li>Automation workflows & MCP</li>
-                        <li>AI coding systems</li>
-                        <li>Reusable project instructions</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tools & Technologies -->
-        <section>
-            <h2>Tools & Technologies</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Flutter</span><span class="skill-tag">Dart</span><span class="skill-tag">BLoC / Cubit</span><span class="skill-tag">Clean Architecture</span><span class="skill-tag">Firebase</span><span class="skill-tag">Crashlytics</span><span class="skill-tag">Analytics</span><span class="skill-tag">Remote Config</span><span class="skill-tag">Google Play Console</span><span class="skill-tag">App Store Connect</span><span class="skill-tag">MoEngage</span><span class="skill-tag">WebEngage</span><span class="skill-tag">PostHog</span><span class="skill-tag">Adjust</span><span class="skill-tag">n8n</span><span class="skill-tag">Make</span><span class="skill-tag">Agno</span><span class="skill-tag">CopilotKit</span><span class="skill-tag">MCP</span><span class="skill-tag">Open Source</span><span class="skill-tag">AI Agents</span><span class="skill-tag">Automation</span><span class="skill-tag">Git</span><span class="skill-tag">Code Review</span>
-            </div>
-        </section>
-
-        <!-- Impact Highlights -->
-        <section>
-            <h2>Impact Highlights</h2>
-            <ul>
-                <li>Scaled mobile product delivery for an EdTech app used by millions of learners.</li>
-                <li>Improved release speed without sacrificing stability or production quality.</li>
-                <li>Connected engineering work directly to product growth, marketing automation, and business KPIs.</li>
-                <li>Built AI and automation workflows that improve team productivity and project execution speed.</li>
-            </ul>
-        </section>
-
-        <!-- Metadata Section (Education & Languages) -->
-        <div class="meta-grid">
-            <section>
-                <h2>Education</h2>
-                <p><strong>Bachelor of Science in Computer Science</strong></p>
-                <p style="color: var(--text-muted);">Islamic University | Graduated: 2018</p>
-            </section>
-            <section>
-                <h2>Languages</h2>
-                <p><strong>Arabic:</strong> Native / Bilingual Proficiency</p>
-                <p><strong>English:</strong> Professional Working Proficiency</p>
-            </section>
+<main>
+    <header>
+        <h1>AlHassan Balousha</h1>
+        <div class="headline">AI Automation Engineer | Senior Flutter Engineer | Lead Mobile Engineer</div>
+        <div class="contact">
+            Phone: [Your Phone Number] | Email: <a href="mailto:hassanbalousha75@gmail.com">hassanbalousha75@gmail.com</a> | LinkedIn: <a href="https://www.linkedin.com/in/alhassan-balousha-9b7bb8114/">LinkedIn</a> | GitHub: <a href="https://github.com/HassanBalousha">GitHub</a> | Portfolio: <a href="https://hassanbalousha.github.io/cv/">Portfolio</a> | Palestine / Remote
         </div>
+    </header>
 
-        <footer>
-            <p>Designed by AlHassan Balousha © 2026</p>
-        </footer>
+    <section>
+        <h2>Professional Summary</h2>
+        <p>Senior Lead Mobile Engineer and AI Automation Engineer with 9+ years of experience building, scaling, and shipping production Flutter, Android, and iOS applications used by more than 5 million users. Experienced in Flutter architecture, Dart, BLoC / Cubit, Clean Architecture, modular mobile systems, release governance, production monitoring, analytics integration, growth engineering, AI agents, MCP tools, and automation workflows. Proven track record delivering 300+ production releases, maintaining 99.9% crash-free stability, reviewing 600+ pull requests, reducing release cycles from 4 weeks to 1 week, and leading engineering teams to deliver scalable mobile products.</p>
+    </section>
+
+    <section>
+        <h2>Target Roles</h2>
+        <ul>
+            <li>AI Automation Engineer</li>
+            <li>Senior Flutter Engineer</li>
+            <li>Lead Mobile Engineer</li>
+            <li>Flutter Architect</li>
+            <li>Mobile Architect</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Core Technical Skills</h2>
+        <div class="skill-group"><h3>Mobile Engineering</h3><ul><li>Flutter</li><li>Dart</li><li>Android</li><li>iOS</li><li>BLoC</li><li>Cubit</li><li>State Management</li><li>Clean Architecture</li><li>Modular Architecture</li><li>Mobile Architecture</li><li>Performance Optimization</li><li>Push Notifications</li><li>REST APIs</li><li>Firebase Messaging</li></ul></div>
+<div class="skill-group"><h3>AI Automation</h3><ul><li>AI Automation</li><li>AI Agents</li><li>Agentic Workflows</li><li>MCP</li><li>MCP Servers</li><li>n8n</li><li>Make</li><li>CopilotKit</li><li>Agno</li><li>AI-assisted Development</li><li>Vibe Coding</li><li>Reusable AI Workflows</li></ul></div>
+<div class="skill-group"><h3>Release and Quality</h3><ul><li>Release Governance</li><li>Staged Rollouts</li><li>App Store Connect</li><li>Google Play Console</li><li>Firebase Crashlytics</li><li>Production Monitoring</li><li>Bug Triage</li><li>Hotfixes</li><li>Release Checklists</li><li>Feature Quality</li><li>CI/CD</li><li>GitHub Actions</li><li>Fastlane</li></ul></div>
+<div class="skill-group"><h3>Analytics and Growth Engineering</h3><ul><li>Firebase Analytics</li><li>PostHog</li><li>MoEngage</li><li>WebEngage</li><li>Adjust</li><li>Event Tracking</li><li>Event Taxonomy</li><li>A/B Testing</li><li>Attribution</li><li>Lifecycle Events</li><li>Growth KPIs</li><li>Campaign Attribution</li></ul></div>
+<div class="skill-group"><h3>Leadership</h3><ul><li>Technical Leadership</li><li>Team Leadership</li><li>Engineering Mentoring</li><li>PR Reviews</li><li>Code Review</li><li>Architecture Decisions</li><li>Cross-functional Collaboration</li><li>Agile</li><li>Scrum</li></ul></div>
+
+    </section>
+
+    <section>
+        <h2>Professional Experience</h2>
+        <div class="job-row"><span>Senior / Lead Mobile Engineer</span><span>March 2020 - Present | Remote</span></div>
+        <div class="company">iStoria - EdTech / English Language Learning</div>
+        <div class="links"><a href="https://istoria.app/">Website</a> | <a href="https://apps.apple.com/us/app/learn-english-easily-istoria/id1527544903">App Store</a> | <a href="https://play.google.com/store/apps/details?id=sa.app.iStoria">Google Play</a></div>
+        <ul><li>Led mobile architecture and delivery for a scalable Flutter codebase serving 5M+ users across Android and iOS.</li><li>Owned release governance, staged rollout decisions, post-release monitoring, hotfix planning, and production quality.</li><li>Led a 4-engineer squad, reviewed code, guided implementation decisions, mentored developers, and improved engineering standards.</li><li>Delivered 300+ production releases while maintaining 99.9% crash-free stability using Firebase Crashlytics and production monitoring workflows.</li><li>Reviewed 600+ pull requests across a 50+ module codebase and supported scalable implementation decisions across multiple product areas.</li><li>Reduced release cycle from 4 weeks to 1 week by improving release workflows, quality checks, staging processes, and engineering ownership.</li><li>Integrated analytics, attribution, and marketing automation tools including MoEngage, WebEngage, PostHog, Adjust, Firebase Analytics, and Firebase Crashlytics.</li><li>Implemented event tracking, A/B testing support, attribution flows, lifecycle events, and growth KPI tracking to connect engineering work with business outcomes.</li><li>Collaborated with product, growth, marketing, and QA teams to deliver user-facing features, improve app quality, and protect product performance metrics.</li></ul>
+    </section>
+
+    <section>
+        <h2>AI, Automation and Developer Productivity</h2>
+        <ul><li>Created custom AI agents and project-specific workflows using Agno, CopilotKit, and agentic development patterns.</li><li>Built automation workflows using n8n and Make to improve execution speed, repeatable operations, and developer productivity.</li><li>Created reusable project architecture assets including plans, hooks, skills, instructions, and AI-assisted engineering workflows.</li><li>Created and connected MCP tools and MCP servers to integrate AI workflows with external systems and project-specific operations.</li><li>Used AI-assisted development and vibe coding to build, improve, and contribute to open-source tools faster while maintaining engineering quality.</li></ul>
+    </section>
+
+    <section>
+        <h2>Selected Projects</h2>
+        <article class="project"><h3>iStoria - EdTech English Learning Mobile App</h3><ul><li>Role: Senior / Lead Mobile Engineer</li><li>Scale: 5M+ users, 300+ releases, 99.9% crash-free stability, 50+ modules</li><li>Technologies: Flutter, Dart, BLoC, Cubit, Firebase, Crashlytics, PostHog, MoEngage, WebEngage, Adjust, App Store Connect, Google Play Console</li><li>Impact: Improved release speed, product stability, analytics quality, growth tracking, and cross-functional delivery for a large-scale mobile product.</li></ul></article>
+<article class="project"><h3>AI Automation and Agentic Developer Workflows</h3><ul><li>Role: AI Automation Engineer / Technical Lead</li><li>Technologies: AI Agents, MCP, MCP Servers, n8n, Make, Agno, CopilotKit, reusable workflow instructions, AI-assisted development</li><li>Impact: Built reusable automation assets and AI-assisted engineering workflows to improve developer productivity and project execution speed.</li></ul></article>
+
+    </section>
+
+    <section>
+        <h2>Impact Highlights</h2>
+        <ul><li>9+ years production mobile engineering experience</li><li>5M+ mobile users reached</li><li>4 engineers led and mentored</li><li>50+ mobile modules owned</li><li>300+ production releases delivered</li><li>600+ pull requests reviewed</li><li>99.9% crash-free production stability</li><li>Release cycle reduced from 4 weeks to 1 week</li></ul>
+    </section>
+
+    <div class="grid">
+        <section>
+            <h2>Education</h2>
+            <p><strong>Bachelor of Science in Computer Science</strong></p>
+            <p>Islamic University | Graduated: 2018</p>
+        </section>
+        <section>
+            <h2>Languages</h2>
+            <p><strong>Arabic:</strong> Native / Bilingual Proficiency</p>
+            <p><strong>English:</strong> Professional Working Proficiency</p>
+        </section>
     </div>
 
+    <section>
+        <h2>ATS Keywords</h2>
+        <p class="keyword-list">AI Automation Engineer, Senior Flutter Engineer, Lead Mobile Engineer, Flutter Architect, Mobile Architect, Flutter, Dart, Android, iOS, BLoC, Cubit, Clean Architecture, Modular Architecture, Firebase, Crashlytics, Firebase Analytics, PostHog, MoEngage, WebEngage, Adjust, A/B Testing, AI Agents, MCP, MCP Servers, n8n, Make, CopilotKit, Agno, Technical Leadership, Release Governance, Staged Rollouts, Production Monitoring, CI/CD, GitHub Actions, Fastlane</p>
+    </section>
+
+    <footer>Designed by AlHassan Balousha - ATS-friendly resume version</footer>
+</main>
 </body>
 </html>
