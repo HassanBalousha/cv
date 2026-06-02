@@ -1,4 +1,4 @@
-# 👋 Hi, I'm AlHassan Balousha (Abu Najwa)
+# 👋 Hi, I'm AlHassan Balousha
 ### Senior / Lead Mobile Engineer & AI Automation Specialist
 
 <p align="left">
