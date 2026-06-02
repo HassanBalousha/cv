@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlHassan Balousha | Senior Lead Mobile Engineer</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --border: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background-color: var(--card-bg);
+            transition: all 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            background-color: var(--border);
+            color: var(--accent-hover);
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-left: 4px solid var(--accent);
+            padding-left: 0.75rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .summary-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metric-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-card .number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-card .label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .experience-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .exp-title h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .exp-title .company {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .exp-time {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .exp-bullets {
+            list-style-type: none;
+        }
+
+        .exp-bullets li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .exp-bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .skills-table th, .skills-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skills-table th {
+            background-color: #131e3a;
+            color: var(--accent);
+            font-weight: 700;
+            width: 30%;
+        }
+
+        .skills-table td {
+            color: var(--text-muted);
+        }
+
+        .skills-table tr:last-child td, .skills-table tr:last-child th {
+            border-bottom: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .exp-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .skills-table th, .skills-table td {
+                display: block;
+                width: 100%;
+            }
+            .skills-table th {
+                border-bottom: none;
+                padding-bottom: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>AlHassan Balousha</h1>
+            <p>Senior / Lead Mobile Engineer & AI Automation Specialist</p>
+            <div class="contact-links">
+                <a href="mailto:hassanbalousha75@gmail.com">hassanbalousha75@gmail.com</a>
+                <a href="https://www.linkedin.com/in/alhassan-balousha-9b7bb8114/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/HassanBalousha" target="_blank">GitHub</a>
+                <a href="https://istoria.app/" target="_blank">iStoria Web</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <p class="summary-text">
+                Results-driven Senior / Lead Mobile Engineer with 9+ years of professional experience architecting, developing, and shipping high-performance iOS and Android applications to 5M+ users using Flutter, Dart, BLoC/Cubit, and Clean Architecture. Proven track record leading a 4-engineer squad at iStoria, owning mobile architecture, release governance, and accelerating delivery cycles by 75% while maintaining an elite 99.9% crash-free rate. Expert in integrating modern AI agentic workflows, n8n automation, and Model Context Protocol (MCP) systems to maximize engineering efficiency and product scale.
+            </p>
+        </section>
+
+        <section>
+            <h2>Key Metrics & Impact</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="number">9+ Years</div>
+                    <div class="label">Mobile Experience</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">5M+</div>
+                    <div class="label">Global Users Reached</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">99.9%</div>
+                    <div class="label">Crash-Free Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">75%</div>
+                    <div class="label">Faster Time-to-Market</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>Senior / Lead Mobile Engineer</h3>
+                        <div class="company">iStoria (EdTech / English Learning)</div>
+                    </div>
+                    <div class="exp-time">March 2020 – Present | Remote</div>
+                </div>
+                <ul class="exp-bullets">
+                    <li><strong>Architecture & Team Leadership:</strong> Led a high-performing 4-engineer mobile squad to architect and scale a massive 50+ module Flutter codebase serving over 5M users across iOS and Android platforms.</li>
+                    <li><strong>Release Governance & Efficiency:</strong> Owned the end-to-end release lifecycle and staged rollout decisions; engineered automated quality checks that slashed the release cycle from 4 weeks to just 1 week across 80+ production releases.</li>
+                    <li><strong>Quality Assurance & Code Quality:</strong> Set exceptional engineering standards by conducting 600+ deep code reviews (PRs) and monitoring production health via Firebase Crashlytics to sustain a 99.9% crash-free rate.</li>
+                    <li><strong>Growth & Analytics Integration:</strong> Engineered robust event tracking, A/B testing support, and advanced attribution flows by integrating MoEngage, WebEngage, PostHog, Adjust, and Firebase to safeguard core business KPIs and drive marketing automation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>AI & Automation Edge</h2>
+            <div class="experience-item">
+                <ul class="exp-bullets">
+                    <li><strong>Agentic Workflows:</strong> Developed custom AI agents and project-specific workflows utilizing Agno and CopilotKit to enhance feature delivery speeds.</li>
+                    <li><strong>Advanced Automation:</strong> Engineered complex automation pipelines using n8n and Make to link internal engineering ecosystems with external systems.</li>
+                    <li><strong>AI-Assisted Engineering:</strong> Designed and connected custom Model Context Protocol (MCP) tools/servers to embed intelligent code-generation and automated triage directly into the daily development workflow.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Strengths</h2>
+            <table class="skills-table">
+                <tr>
+                    <th>Mobile Core</th>
+                    <td>Flutter, Dart, Android, iOS, BLoC / Cubit, Clean Architecture, Modular Architecture</td>
+                </tr>
+                <tr>
+                    <th>Release & Quality</th>
+                    <td>Release Governance, Staged Rollouts, Production Monitoring, Firebase Crashlytics, Bug Triage, Hotfixes</td>
+                </tr>
+                <tr>
+                    <th>Analytics & Growth</th>
+                    <td>Event Taxonomy, User Behavior Analysis, A/B Testing, PostHog, MoEngage, WebEngage, Adjust, Firebase</td>
+                </tr>
+                <tr>
+                    <th>AI & Automation</th>
+                    <td>Custom AI Agents, n8n, Make, Agno, CopilotKit, MCP Servers, Prompt Architecture</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="experience-item" style="padding: 1rem 1.5rem;">
+                <div class="exp-header" style="margin-bottom: 0;">
+                    <div class="exp-title">
+                        <h3>Bachelor of Science in Computer Science</h3>
+                        <div style="color: var(--text-muted);">Islamic University</div>
+                    </div>
+                    <div class="exp-time">Graduated: 2018</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Designed by AlHassan Balousha © 2026</p>
+        </footer>
+    </div>
+
+</body>
+</html>
