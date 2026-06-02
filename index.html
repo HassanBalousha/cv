@@ -148,13 +148,27 @@
         }
 
         .exp-title .company {
-            color: var(--accent);
+            color: var(--text-main);
             font-weight: 600;
-            text-decoration: none;
+            margin-top: 0.15rem;
         }
 
-        .exp-title .company:hover {
+        .project-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .project-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-links a:hover {
             text-decoration: underline;
+            color: var(--accent-hover);
         }
 
         .exp-time {
@@ -232,9 +246,6 @@
                 <a href="mailto:hassanbalousha75@gmail.com">Email</a>
                 <a href="https://www.linkedin.com/in/alhassan-balousha-9b7bb8114/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/HassanBalousha" target="_blank">GitHub</a>
-                <a href="https://istoria.app/" target="_blank">iStoria Website</a>
-                <a href="https://apps.apple.com/us/app/learn-english-easily-istoria/id1527544903" target="_blank">App Store</a>
-                <a href="https://play.google.com/store/apps/details?id=sa.app.iStoria" target="_blank">Google Play</a>
             </div>
         </header>
 
@@ -273,7 +284,12 @@
                 <div class="exp-header">
                     <div class="exp-title">
                         <h3>Senior / Lead Mobile Engineer</h3>
-                        <a href="https://istoria.app/" class="company" target="_blank">iStoria (EdTech / English Learning)</a>
+                        <div class="company">iStoria (EdTech / English Learning)</div>
+                        <div class="project-links">
+                            <a href="https://istoria.app/" target="_blank">🔗 Website</a>
+                            <a href="https://apps.apple.com/us/app/learn-english-easily-istoria/id1527544903" target="_blank">🍏 App Store</a>
+                            <a href="https://play.google.com/store/apps/details?id=sa.app.iStoria" target="_blank">🤖 Google Play</a>
+                        </div>
                     </div>
                     <div class="exp-time">March 2020 – Present | Remote</div>
                 </div>
