@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AlHassan Balousha — Senior Flutter Engineer & Lead Mobile Engineer</title>
+  <meta name="description" content="Senior Flutter Engineer and Lead Mobile Engineer with 9+ years of experience building production apps used by 5M+ users." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #111318;
+      color: #f5f0e8;
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Variables ── */
+    :root {
+      --gold: #c9a84c;
+      --gold-dim: rgba(201,168,76,0.18);
+      --bg: #111318;
+      --bg2: #1a1e28;
+      --bg3: #161920;
+      --text: #f5f0e8;
+      --text-muted: #8899aa;
+      --text-mid: #bbb8b0;
+      --border: rgba(255,255,255,0.08);
+      --radius: 10px;
+    }
+
+    /* ── Container ── */
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    @media (min-width: 768px) { .container { padding: 0 2.5rem; } }
+    @media (min-width: 1100px) { .container { padding: 0 3rem; } }
+
+    /* ── Top Nav ── */
+    #topnav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    #topnav.scrolled {
+      background: rgba(17,19,24,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #f5f0e8;
+      transition: color 0.15s;
+      cursor: pointer;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    @media (max-width: 767px) { .nav-links { display: none; } }
+
+    /* ── Side Dots Nav ── */
+    #sidenav {
+      position: fixed;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .side-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      outline: none;
+    }
+    .side-dot.active {
+      background: var(--gold);
+      height: 22px;
+      border-radius: 3px;
+    }
+    @media (max-width: 1100px) { #sidenav { display: none; } }
+
+    /* ── Section Label ── */
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 2.2rem;
+      height: 1.5px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── Gold Line ── */
+    .gold-line {
+      width: 2.5rem;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ── Skill Chip ── */
+    .chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.22rem 0.6rem;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: #c0bdb5;
+      display: inline-block;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+    .chip:hover {
+      background: rgba(201,168,76,0.14);
+      border-color: rgba(201,168,76,0.38);
+      color: var(--gold);
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: transform 0.18s cubic-bezier(0.23,1,0.32,1),
+                  box-shadow 0.18s cubic-bezier(0.23,1,0.32,1),
+                  border-color 0.18s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(201,168,76,0.1);
+      border-color: rgba(201,168,76,0.3);
+    }
+
+    /* ── Scroll Animation ── */
+    .anim {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s cubic-bezier(0.23,1,0.32,1),
+                  transform 0.55s cubic-bezier(0.23,1,0.32,1);
+    }
+    .anim.visible { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 85% 60%, rgba(201,168,76,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 30%, rgba(30,40,80,0.4) 0%, transparent 70%),
+        linear-gradient(135deg, #0d0f14 0%, #111318 50%, #14161d 100%);
+    }
+    /* Animated circuit lines */
+    .hero-circuit {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 45%;
+      max-width: 520px;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 7rem 0 5rem;
+      max-width: 680px;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.03;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title .gold { color: var(--gold); }
+    .hero-sub {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .btn-primary {
+      padding: 0.75rem 1.75rem;
+      background: var(--gold);
+      color: #111318;
+      font-weight: 600;
+      font-size: 0.88rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { background: #d9b85c; }
+    .btn-primary:active { transform: scale(0.97); }
+    .btn-outline {
+      padding: 0.75rem 1.75rem;
+      background: transparent;
+      color: #c8c4bc;
+      font-size: 0.88rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.14);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, transform 0.1s;
+    }
+    .btn-outline:hover { border-color: rgba(201,168,76,0.45); color: #f5f0e8; }
+    .btn-outline:active { transform: scale(0.97); }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0.35;
+    }
+    .scroll-hint span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 2rem;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    /* ═══════════════════════════════════════════════
+       METRICS
+    ═══════════════════════════════════════════════ */
+    #metrics {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 640px) { .metrics-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .metrics-grid { grid-template-columns: repeat(6, 1fr); } }
+    .metric-card {
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .metric-value {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2.4rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .metric-label {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: #f5f0e8;
+      margin-top: 0.3rem;
+    }
+    .metric-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════════
+       SUMMARY
+    ═══════════════════════════════════════════════ */
+    #summary {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, #13151b 0%, #111318 60%, #14161d 100%);
+    }
+    .summary-inner { max-width: 780px; }
+    .summary-quote {
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: #ccc8c0;
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+    }
+    .summary-body {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+    .summary-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) { .summary-cards { grid-template-columns: repeat(3, 1fr); } }
+    .summary-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      background: rgba(26,30,40,0.7);
+    }
+    .summary-card-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .summary-card-value {
+      color: #ccc8c0;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    /* ═══════════════════════════════════════════════
+       EXPERTISE
+    ═══════════════════════════════════════════════ */
+    #expertise {
+      padding: 6rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 640px) { .expertise-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .expertise-grid { grid-template-columns: repeat(3, 1fr); } }
+    .expertise-card { padding: 1.5rem; }
+    .expertise-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .expertise-bar {
+      width: 4px;
+      height: 1.5rem;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .expertise-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #f5f0e8;
+    }
+    .chips-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    /* ═══════════════════════════════════════════════
+       EXPERIENCE
+    ═══════════════════════════════════════════════ */
+    #experience {
+      padding: 6rem 0;
+      border-top: 1px solid var(--border);
+      background: #161920;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 3rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.5) 15%, rgba(201,168,76,0.5) 85%, transparent);
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -4px;
+      top: 8px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .exp-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-bottom: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .exp-header { flex-direction: row; align-items: flex-start; justify-content: space-between; }
+    }
+    .exp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f5f0e8;
+    }
+    .exp-company { color: var(--gold); font-size: 0.88rem; font-weight: 500; margin-top: 0.15rem; }
+    .exp-meta { display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+    @media (min-width: 640px) { .exp-meta { align-items: flex-end; } }
+    .exp-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.05);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+    .exp-type {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+    .exp-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (min-width: 640px) { .achievements-grid { grid-template-columns: repeat(2, 1fr); } }
+    .ach-card {
+      background: var(--bg2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .ach-task { color: #ccc8c0; font-size: 0.85rem; margin-bottom: 0.5rem; }
+    .ach-result {
+      color: var(--gold);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       AI AUTOMATION
+    ═══════════════════════════════════════════════ */
+    #ai {
+      padding: 6rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .ai-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 640px) { .ai-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .ai-grid { grid-template-columns: repeat(4, 1fr); } }
+    .ai-card { padding: 1.5rem; }
+    .ai-icon {
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+    .ai-card:hover .ai-icon { transform: scale(1.12); }
+    .ai-title { font-weight: 600; color: #f5f0e8; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .ai-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.65; }
+    .ai-tech-box {
+      margin-top: 2rem;
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      background: rgba(201,168,76,0.04);
+    }
+    .ai-tech-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       PROJECTS
+    ═══════════════════════════════════════════════ */
+    #projects {
+      padding: 6rem 0;
+      border-top: 1px solid var(--border);
+      background: #161920;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+    .proj-card { padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+    .proj-role-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .proj-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .proj-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f5f0e8;
+    }
+    .proj-subtitle { color: var(--text-muted); font-size: 0.85rem; }
+    .proj-scale {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+      border-radius: 6px;
+      padding: 0.4rem 0.75rem;
+    }
+    .proj-impact { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; }
+
+    /* ═══════════════════════════════════════════════
+       EDUCATION
+    ═══════════════════════════════════════════════ */
+    #education {
+      padding: 6rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 768px) { .edu-grid { grid-template-columns: repeat(2, 1fr); } }
+    .edu-card { padding: 1.5rem; }
+    .edu-card-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f5f0e8;
+      margin-bottom: 0.3rem;
+    }
+    .edu-school { color: var(--text-muted); font-size: 0.88rem; }
+    .lang-item {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      background: var(--bg2);
+      margin-bottom: 0.75rem;
+    }
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .lang-name { font-weight: 600; color: #f5f0e8; font-size: 0.95rem; }
+    .lang-level { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--text-muted); }
+    .lang-bar {
+      height: 3px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .lang-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════════ */
+    #contact {
+      padding: 6rem 0;
+      border-top: 1px solid var(--border);
+      background: #161920;
+    }
+    .contact-inner { max-width: 680px; }
+    .contact-desc { color: var(--text-muted); line-height: 1.75; margin-bottom: 2rem; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+    @media (min-width: 560px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+    }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(201,168,76,0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.85rem;
+      font-family: 'JetBrains Mono', monospace;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .contact-card:hover .contact-icon { background: rgba(201,168,76,0.24); }
+    .contact-clabel {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .contact-val { color: #ccc8c0; font-size: 0.88rem; }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      text-align: center;
+    }
+    @media (min-width: 640px) {
+      .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; }
+    }
+    .footer-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: rgba(136,153,170,0.55);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOP NAV ── -->
+  <header id="topnav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="nav-logo" onclick="scrollTo('hero')">AlHassan<span>.</span></div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#metrics" onclick="smoothScroll(event,'metrics')">Impact</a></li>
+            <li><a href="#summary" onclick="smoothScroll(event,'summary')">About</a></li>
+            <li><a href="#expertise" onclick="smoothScroll(event,'expertise')">Skills</a></li>
+            <li><a href="#experience" onclick="smoothScroll(event,'experience')">Experience</a></li>
+            <li><a href="#ai" onclick="smoothScroll(event,'ai')">AI & Automation</a></li>
+            <li><a href="#projects" onclick="smoothScroll(event,'projects')">Projects</a></li>
+            <li><a href="#education" onclick="smoothScroll(event,'education')">Education</a></li>
+            <li><a href="#contact" onclick="smoothScroll(event,'contact')">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── SIDE DOTS ── -->
+  <nav id="sidenav">
+    <button class="side-dot active" data-target="hero" onclick="scrollTo('hero')" title="Home"></button>
+    <button class="side-dot" data-target="metrics" onclick="scrollTo('metrics')" title="Impact"></button>
+    <button class="side-dot" data-target="summary" onclick="scrollTo('summary')" title="About"></button>
+    <button class="side-dot" data-target="expertise" onclick="scrollTo('expertise')" title="Skills"></button>
+    <button class="side-dot" data-target="experience" onclick="scrollTo('experience')" title="Experience"></button>
+    <button class="side-dot" data-target="ai" onclick="scrollTo('ai')" title="AI"></button>
+    <button class="side-dot" data-target="projects" onclick="scrollTo('projects')" title="Projects"></button>
+    <button class="side-dot" data-target="education" onclick="scrollTo('education')" title="Education"></button>
+    <button class="side-dot" data-target="contact" onclick="scrollTo('contact')" title="Contact"></button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+
+    <!-- Decorative SVG circuit -->
+    <svg class="hero-circuit" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#c9a84c" stroke-width="1" opacity="0.8">
+        <polygon points="250,60 340,110 340,210 250,260 160,210 160,110" fill="none"/>
+        <polygon points="250,80 325,122 325,198 250,240 175,198 175,122" fill="none" opacity="0.5"/>
+        <polygon points="320,180 390,220 390,300 320,340 250,300 250,220" fill="none" opacity="0.6"/>
+        <polygon points="180,180 250,220 250,300 180,340 110,300 110,220" fill="none" opacity="0.4"/>
+        <line x1="250" y1="260" x2="250" y2="340"/>
+        <line x1="160" y1="210" x2="110" y2="220"/>
+        <line x1="340" y1="210" x2="390" y2="220"/>
+        <circle cx="250" cy="60" r="4" fill="#c9a84c"/>
+        <circle cx="340" cy="110" r="3" fill="#c9a84c" opacity="0.7"/>
+        <circle cx="160" cy="110" r="3" fill="#c9a84c" opacity="0.7"/>
+        <circle cx="250" cy="260" r="5" fill="#c9a84c"/>
+        <circle cx="320" cy="340" r="3" fill="#c9a84c" opacity="0.5"/>
+        <circle cx="180" cy="340" r="3" fill="#c9a84c" opacity="0.5"/>
+      </g>
+      <g fill="#3a5080" opacity="0.4">
+        <circle cx="390" cy="80" r="4"/>
+        <circle cx="420" cy="150" r="3"/>
+        <circle cx="100" cy="350" r="4"/>
+        <circle cx="70" cy="280" r="3"/>
+        <circle cx="440" cy="320" r="5"/>
+      </g>
+    </svg>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="section-label anim" style="transition-delay:0ms">Senior Flutter Engineer · Lead Mobile Engineer</div>
+        <h1 class="hero-title anim" style="transition-delay:80ms">
+          AlHassan<br><span class="gold">Balousha</span>
+        </h1>
+        <p class="hero-sub anim" style="transition-delay:160ms">
+          9+ years building production Flutter apps used by 5M+ users. Specialized in mobile architecture, release governance, analytics integration, and AI-assisted engineering workflows.
+        </p>
+        <div class="hero-btns anim" style="transition-delay:240ms">
+          <button class="btn-primary" onclick="scrollTo('contact')">Get in Touch</button>
+          <button class="btn-outline" onclick="scrollTo('experience')">View Experience</button>
+        </div>
+        <div class="hero-chips anim" style="transition-delay:320ms">
+          <span class="chip">Flutter</span>
+          <span class="chip">Dart</span>
+          <span class="chip">BLoC</span>
+          <span class="chip">Clean Architecture</span>
+          <span class="chip">AI Agents</span>
+          <span class="chip">MCP</span>
+          <span class="chip">n8n</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       METRICS
+  ═══════════════════════════════════════════════ -->
+  <section id="metrics">
+    <div class="container">
+      <p class="section-label anim">Impact & Scale</p>
+      <h2 class="anim" style="font-size:2rem;font-weight:700;color:#f5f0e8;transition-delay:60ms">Numbers That Matter</h2>
+      <div class="gold-line anim" style="transition-delay:100ms"></div>
+      <div class="metrics-grid">
+        <div class="card metric-card anim" style="transition-delay:60ms">
+          <div class="metric-value">9+</div>
+          <div class="metric-label">Years Experience</div>
+          <div class="metric-sub">Production Mobile Engineering</div>
+        </div>
+        <div class="card metric-card anim" style="transition-delay:120ms">
+          <div class="metric-value">5M+</div>
+          <div class="metric-label">Users Reached</div>
+          <div class="metric-sub">Android & iOS</div>
+        </div>
+        <div class="card metric-card anim" style="transition-delay:180ms">
+          <div class="metric-value">300+</div>
+          <div class="metric-label">Production Releases</div>
+          <div class="metric-sub">Delivered</div>
+        </div>
+        <div class="card metric-card anim" style="transition-delay:240ms">
+          <div class="metric-value">99.9%</div>
+          <div class="metric-label">Crash-Free Stability</div>
+          <div class="metric-sub">Production Apps</div>
+        </div>
+        <div class="card metric-card anim" style="transition-delay:300ms">
+          <div class="metric-value">600+</div>
+          <div class="metric-label">Pull Requests</div>
+          <div class="metric-sub">Reviewed</div>
+        </div>
+        <div class="card metric-card anim" style="transition-delay:360ms">
+          <div class="metric-value">4×</div>
+          <div class="metric-label">Faster Releases</div>
+          <div class="metric-sub">4 weeks → 1 week</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SUMMARY
+  ═══════════════════════════════════════════════ -->
+  <section id="summary">
+    <div class="container">
+      <div class="summary-inner">
+        <p class="section-label anim">Professional Summary</p>
+        <h2 class="anim" style="font-size:2rem;font-weight:700;color:#f5f0e8;transition-delay:60ms">About AlHassan</h2>
+        <div class="gold-line anim" style="transition-delay:100ms"></div>
+        <blockquote class="summary-quote anim" style="transition-delay:140ms">
+          Senior Flutter and Mobile Engineering Lead with 9+ years of experience building, scaling, and shipping production Android and iOS applications used by 5M+ users.
+        </blockquote>
+        <p class="summary-body anim" style="transition-delay:200ms">
+          Specialized in Flutter architecture, Clean Architecture, modular systems, release governance, production monitoring, analytics integration, and engineering leadership. Delivered 300+ production releases, maintained 99.9% crash-free stability, reviewed 600+ pull requests, and reduced release cycles from 4 weeks to 1 week. Experienced in AI-assisted developer productivity and automation workflows using MCP, n8n, Make, Agno, and CopilotKit.
+        </p>
+        <div class="summary-cards anim" style="transition-delay:260ms">
+          <div class="summary-card">
+            <div class="summary-card-label">Primary Focus</div>
+            <div class="summary-card-value">Senior Flutter Engineer
+Lead Mobile Engineer
+Mobile Architect</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-card-label">Secondary Edge</div>
+            <div class="summary-card-value">AI Automation Engineer
+Developer Productivity
+Agentic Workflows</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-card-label">Availability</div>
+            <div class="summary-card-value">Remote · Full-time
+Open to Senior &
+Lead Roles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       EXPERTISE
+  ═══════════════════════════════════════════════ -->
+  <section id="expertise">
+    <div class="container">
+      <p class="section-label anim">Core Expertise</p>
+      <h2 class="anim" style="font-size:2rem;font-weight:700;color:#f5f0e8;transition-delay:60ms">Technical Skills</h2>
+      <div class="gold-line anim" style="transition-delay:100ms"></div>
+      <div class="expertise-grid">
+        <div class="card expertise-card anim" style="transition-delay:60ms">
+          <div class="expertise-header">
+            <div class="expertise-bar" style="background:#c9a84c"></div>
+            <div class="expertise-title">Mobile Engineering</div>
+          </div>
+          <div class="chips-wrap">
+            <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">BLoC</span><span class="chip">Cubit</span><span class="chip">Clean Architecture</span><span class="chip">Modular Architecture</span><span class="chip">State Management</span><span class="chip">Performance Optimization</span><span class="chip">Push Notifications</span><span class="chip">REST APIs</span><span class="chip">Firebase</span><span class="chip">Android</span><span class="chip">iOS</span>
+          </div>
+        </div>
+        <div class="card expertise-card anim" style="transition-delay:120ms">
+          <div class="expertise-header">
+            <div class="expertise-bar" style="background:#4a8fe8"></div>
+            <div class="expertise-title">Architecture & Quality</div>
+          </div>
+          <div class="chips-wrap">
+            <span class="chip">Mobile Architecture</span><span class="chip">Scalable Codebases</span><span class="chip">Release Governance</span><span class="chip">Staged Rollouts</span><span class="chip">Production Monitoring</span><span class="chip">Bug Triage</span><span class="chip">Hotfix Strategy</span><span class="chip">CI/CD</span><span class="chip">GitHub Actions</span><span class="chip">Fastlane</span>
+          </div>
+        </div>
+        <div class="card expertise-card anim" style="transition-delay:180ms">
+          <div class="expertise-header">
+            <div class="expertise-bar" style="background:#3ab8a0"></div>
+            <div class="expertise-title">Analytics & Growth</div>
+          </div>
+          <div class="chips-wrap">
+            <span class="chip">Firebase Analytics</span><span class="chip">PostHog</span><span class="chip">MoEngage</span><span class="chip">WebEngage</span><span class="chip">Adjust</span><span class="chip">Event Tracking</span><span class="chip">A/B Testing</span><span class="chip">Attribution</span><span class="chip">Lifecycle Events</span><span class="chip">Growth KPIs</span>
+          </div>
+        </div>
+        <div class="card expertise-card anim" style="transition-delay:240ms">
+          <div class="expertise-header">
+            <div class="expertise-bar" style="background:#9b6ee8"></div>
+            <div class="expertise-title">AI Automation</div>
+          </div>
+          <div class="chips-wrap">
+            <span class="chip">AI Agents</span><span class="chip">Agentic Workflows</span><span class="chip">MCP</span><span class="chip">MCP Servers</span><span class="chip">n8n</span><span class="chip">Make</span><span class="chip">CopilotKit</span><span class="chip">Agno</span><span class="chip">AI-assisted Dev</span>
+          </div>
+        </div>
+        <div class="card expertise-card anim" style="transition-delay:300ms">
+          <div class="expertise-header">
+            <div class="expertise-bar" style="background:#e8a83a"></div>
+            <div class="expertise-title">Leadership</div>
+          </div>
+          <div class="chips-wrap">
+            <span class="chip">Technical Leadership</span><span class="chip">Team Leadership</span><span class="chip">Engineering Mentoring</span><span class="chip">PR Reviews</span><span class="chip">Code Review</span><span class="chip">Architecture Decisions</span><span class="chip">Cross-functional</span><span class="chip">Agile</span><span class="chip">Scrum</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       EXPERIENCE
+  ═══════════════════════════════════════════════ -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label anim">Professional Experience</p>
+      <h2 class="anim" style="font-size:2rem;font-weight:700;color:#f5f0e8;transition-delay:60ms">Work History</h2>
+      <div class="gold-line anim" style="transition-delay:100ms"></div>
+
+      <div class="timeline-item anim" style="transition-delay:140ms">
+        <div class="timeline-dot"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Senior / Lead Mobile Engineer</div>
+            <div class="exp-company">iStoria — EdTech / English Language Learning</div>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-period">March 2020 – Present</span>
+            <span class="exp-type">Remote</span>
+          </div>
+        </div>
+        <p class="exp-desc">
+          Led architecture and delivery of a modular Flutter codebase serving 5M+ users across Android and iOS. Owned release governance, staged rollouts, post-release monitoring, and hotfix strategy to protect production quality. Led a 4-engineer squad, reviewed implementation decisions, mentored developers, and improved engineering standards across a 50+ module codebase.
+        </p>
+        <div class="achievements-grid">
+          <div class="ach-card">
+            <div class="ach-task">Delivered 300+ production releases using structured release workflows and monitoring.</div>
+            <div class="ach-result"><span>→</span> Maintained 99.9% crash-free production stability.</div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-task">Redesigned release workflows, staging ownership, and quality checks.</div>
+            <div class="ach-result"><span>→</span> Reduced release cycles from 4 weeks to 1 week.</div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-task">Reviewed 600+ pull requests across product and architecture areas.</div>
+            <div class="ach-result"><span>→</span> Improved engineering consistency and scalable implementation quality.</div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-task">Integrated MoEngage, WebEngage, PostHog, Adjust, Firebase Analytics, and Crashlytics.</div>
+            <div class="ach-result"><span>→</span> Improved analytics quality, attribution visibility, and growth tracking.</div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-task">Implemented event tracking, A/B testing support, lifecycle events, and KPI tracking.</div>
+            <div class="ach-result"><span>→</span> Connected engineering delivery with product and business outcomes.</div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-task">Collaborated with product, growth, marketing, and QA teams.</div>
+            <div class="ach-result"><span>→</span> Delivered user-facing features while protecting performance and quality metrics.</div>
+          </div>
+        </div>
+        <div class="chips-wrap">
+          <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">BLoC</span><span class="chip">Firebase</span><span class="chip">Crashlytics</span><span class="chip">PostHog</span><span class="chip">MoEngage</span><span class="chip">Adjust</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       AI AUTOMATION
+  ═══════════════════════════════════════════════ -->
+  <section id="ai">
+    <div class="container">
+      <p class="section-label anim">AI Automation & Developer Productivity</p>
+      <h2 class="anim" style="font-size:2rem;font-weight:700;color:#f5f0e8;transition-delay:60ms">AI & Automation Edge</h2>
+      <div class="gold-line anim" style="transition-delay:100ms"></div>
+      <p class="anim" style="color:var(--text-muted);line-height:1.75;max-width:640px;margin-bottom:2rem;transition-delay:140ms">
+        Beyond mobile engineering, AlHassan builds AI-assisted developer workflows, automation pipelines, and agentic systems that improve engineering productivity and execution consistency.
+      </p>
+      <div class="ai-grid">
+        <div class="card ai-card anim" style="transition-delay:60ms">
+          <span class="ai-icon">◈</span>
+          <div class="ai-title">AI Agents</div>
+          <div class="ai-desc">Created custom AI agents and project-specific engineering workflows using Agno and CopilotKit with agentic development patterns.</div>
+        </div>
+        <div class="card ai-card anim" style="transition-delay:120ms">
+          <span class="ai-icon">⬡</span>
+          <div class="ai-title">MCP Tools</div>
+          <div class="ai-desc">Built and connected MCP tools and MCP servers to integrate AI workflows with external systems and project-specific operations.</div>
+        </div>
+        <div class="card ai-card anim" style="transition-delay:180ms">
+          <span class="ai-icon">⟳</span>
+          <div class="ai-title">Workflow Automation</div>
+          <div class="ai-desc">Built automation workflows using n8n and Make to improve repeatable operations, developer productivity, and execution consistency.</div>
+        </div>
+        <div class="card ai-card anim" style="transition-delay:240ms">
+          <span class="ai-icon">⚡</span>
+          <div class="ai-title">Developer Productivity</div>
+          <div class="ai-desc">Created reusable project assets including plans, hooks, skills, instructions, and AI-assisted engineering workflows.</div>
+        </div>
+      </div>
+      <div class="ai-tech-box anim" style="transition-delay:300ms">
+        <div class="ai-tech-label">Technologies Used</div>
+        <div class="chips-wrap">
+          <span class="chip">AI Agents</span><span class="chip">Agentic Workflows</span><span class="chip">MCP</span><span class="chip">MCP Servers</span><span class="chip">n8n</span><span class="chip">Make</span><span class="chip">CopilotKit</span><span class="chip">Agno</span><span class="chip">AI-assisted Development</span><span class="chip">Reusable Workflows</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════════════ -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label anim">Selected Projects</p>
+      <h2 class="anim" style="font-size:2rem;font-weight:700;color:#f5f0e8;transition-delay:60ms">Featured Work</h2>
+      <div class="gold-line anim" style="transition-delay:100ms"></div>
+      <div class="projects-grid">
+        <div class="card proj-card anim" style="transition-delay:120ms">
+          <div>
+            <div class="proj-role-label" style="color:#c9a84c">
+              <div class="proj-dot" style="background:#c9a84c"></div>
+              Senior / Lead Mobile Engineer
+            </div>
+            <div class="proj-name">iStoria</div>
+            <div class="proj-subtitle">EdTech English Learning Mobile App</div>
+          </div>
+          <div class="proj-scale">5M+ users · 300+ releases · 99.9% crash-free · 50+ modules</div>
+          <div class="proj-impact">Improved release speed, production stability, analytics quality, growth tracking, and cross-functional delivery for a large-scale mobile product.</div>
+          <div class="chips-wrap">
+            <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">BLoC</span><span class="chip">Firebase</span><span class="chip">Crashlytics</span><span class="chip">PostHog</span><span class="chip">MoEngage</span><span class="chip">Adjust</span>
+          </div>
+        </div>
+        <div class="card proj-card anim" style="transition-delay:200ms">
+          <div>
+            <div class="proj-role-label" style="color:#4a8fe8">
+              <div class="proj-dot" style="background:#4a8fe8"></div>
+              AI Automation Engineer / Technical Lead
+            </div>
+            <div class="proj-name">AI Automation Workflows</div>
+            <div class="proj-subtitle">Agentic Developer Productivity System</div>
+          </div>
+          <div class="proj-scale">Reusable workflows · MCP servers · AI agents</div>
+          <div class="proj-impact">Built reusable automation assets and AI-assisted engineering workflows to improve developer productivity and project execution speed.</div>
+          <div class="chips-wrap">
+            <span class="chip">AI Agents</span><span class="chip">MCP</span><span class="chip">MCP Servers</span><span class="chip">n8n</span><span class="chip">Make</span><span class="chip">Agno</span><span class="chip">CopilotKit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       EDUCATION
+  ═══════════════════════════════════════════════ -->
+  <section id="education">
+    <div class="container">
+      <p class="section-label anim">Education & Languages</p>
+      <h2 class="anim" style="font-size:2rem;font-weight:700;color:#f5f0e8;transition-delay:60ms">Academic Background</h2>
+      <div class="gold-line anim" style="transition-delay:100ms"></div>
+      <div class="edu-grid">
+        <div class="anim" style="transition-delay:140ms">
+          <div class="card edu-card">
+            <div class="edu-card-label">Degree</div>
+            <div class="edu-degree">Bachelor of Science in Computer Science</div>
+            <div class="edu-school">Islamic University · Graduated 2018</div>
+          </div>
+        </div>
+        <div class="anim" style="transition-delay:200ms">
+          <p class="section-label" style="margin-bottom:1rem">Languages</p>
+          <div class="lang-item">
+            <div class="lang-row">
+              <span class="lang-name">Arabic</span>
+              <span class="lang-level">Native / Bilingual Proficiency</span>
+            </div>
+            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-row">
+              <span class="lang-name">English</span>
+              <span class="lang-level">Professional Working Proficiency</span>
+            </div>
+            <div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <p class="section-label anim">Contact</p>
+        <h2 class="anim" style="font-size:2rem;font-weight:700;color:#f5f0e8;transition-delay:60ms">Get in Touch</h2>
+        <div class="gold-line anim" style="transition-delay:100ms"></div>
+        <p class="contact-desc anim" style="transition-delay:140ms">
+          Open to Senior Flutter, Lead Mobile, Mobile Architect, and AI Automation Engineer roles. Available for remote positions globally.
+        </p>
+        <div class="contact-grid anim" style="transition-delay:200ms">
+          <a href="mailto:hassanbalousha75@gmail.com" class="card contact-card">
+            <div class="contact-icon">✉</div>
+            <div>
+              <div class="contact-clabel">Email</div>
+              <div class="contact-val">hassanbalousha75@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/alhassan-balousha" target="_blank" rel="noopener" class="card contact-card">
+            <div class="contact-icon">in</div>
+            <div>
+              <div class="contact-clabel">LinkedIn</div>
+              <div class="contact-val">linkedin.com/in/alhassan-balousha</div>
+            </div>
+          </a>
+          <a href="https://github.com/alhassan-balousha" target="_blank" rel="noopener" class="card contact-card">
+            <div class="contact-icon">⌥</div>
+            <div>
+              <div class="contact-clabel">GitHub</div>
+              <div class="contact-val">github.com/alhassan-balousha</div>
+            </div>
+          </a>
+          <a href="#hero" class="card contact-card">
+            <div class="contact-icon">◎</div>
+            <div>
+              <div class="contact-clabel">Location</div>
+              <div class="contact-val">Remote · Available Worldwide</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">© 2026 AlHassan Balousha · Senior Flutter Engineer · Lead Mobile Engineer</p>
+        <p class="footer-text">Available for Remote Roles</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Smooth scroll helper ──
+    function smoothScroll(e, id) {
+      e.preventDefault();
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+    function scrollTo(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ── Nav scroll effect ──
+    const nav = document.getElementById('topnav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Scroll spy ──
+    const sections = ['hero','metrics','summary','expertise','experience','ai','projects','education','contact'];
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sideDots = document.querySelectorAll('.side-dot');
+
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+          sideDots.forEach(d => d.classList.toggle('active', d.dataset.target === id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+
+    // ── Scroll animations ──
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.anim').forEach(el => animObserver.observe(el));
+  </script>
+</body>
+</html>
